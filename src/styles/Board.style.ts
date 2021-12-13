@@ -36,7 +36,7 @@ const StyledBoard = styled.div`
 
   @media only screen and (max-width: 992px) {
     width: 60vw;
-    .board-title {
+    .board__title {
       font-size: 7vw;
     }
     .btn__modal--close {
