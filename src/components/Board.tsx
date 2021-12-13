@@ -4,7 +4,7 @@ import BoardList from "./BoardList";
 import Button from "./Button";
 type Props = {
   title: string;
-  func?: any;
+  func?: Function;
   className?: string;
 };
 const Board: FC<Props> = ({ title, func, className }) => {

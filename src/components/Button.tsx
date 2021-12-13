@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import StyledButton from "../styles/Button.style";
 type Props = {
   text: string;
-  func?: any;
+  func: Function;
   className?: string;
 };
 
