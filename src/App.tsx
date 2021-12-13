@@ -20,7 +20,7 @@ const App: FC = () => {
       <GlobalStyle />
       <Clock time={time.toLocaleTimeString()} />
       <Modal text="Add Deadline" />
-      <div className="display">
+      <div className="display__doubleboard">
         <Board title="In progress" />
         <Board title="Done" />
       </div>
