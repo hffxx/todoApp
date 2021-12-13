@@ -26,7 +26,8 @@ const StyledBoard = styled.div`
 
   .btn__modal--close {
     position: absolute;
-    right: 0;
+    top: 10px;
+    right: 10px;
     padding: 0;
     width: 2vw;
     height: 2vw;
