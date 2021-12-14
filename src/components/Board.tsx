@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import BoardList from "./BoardList";
+import BoardContent from "./BoardContent";
 import Button from "./Button";
 import styled from "styled-components";
 
@@ -38,13 +38,14 @@ const StyledBoard = styled.div`
 type Props = {
   title: string;
   func?: Function;
+  isModal?: boolean;
 };
-const Board: FC<Props> = ({ title, func }) => {
+const Board: FC<Props> = ({ title, func, isModal }) => {
   return (
     <StyledBoard>
-      {!!func && <Button task="modal-close" text="x" func={func}></Button>}
+      {isModal && <Button task="modal-close" text="x" func={func}></Button>}
       <div className="board__title">{title}</div>
-      {!func && <BoardList />}
+      <BoardContent isModal={isModal} />
     </StyledBoard>
   );
 };
