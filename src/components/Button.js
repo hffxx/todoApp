@@ -44,12 +44,12 @@ const StyledButton = styled.button`
     font-size: 7vw;
   }
 
-  ${({ task }) => task === "modal-close" && ModalClose}
+  ${({ isModal }) => isModal && ModalClose}
 `;
 
-const Button = ({ text, func, task = "" }) => {
+const Button = ({ isModal = false, func, text = "" }) => {
   return (
-    <StyledButton task={task} onClick={() => func()}>
+    <StyledButton isModal={isModal} onClick={() => func()}>
       {text}
     </StyledButton>
   );

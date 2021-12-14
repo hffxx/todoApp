@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import BoardContent from "./BoardContent";
+import ModalForm from "./Modal/ModalForm";
 import Button from "./Button";
 import styled from "styled-components";
 
@@ -9,8 +10,8 @@ const StyledBoard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 30vw;
+  min-height: ${({ isModal }) => (isModal ? "30vh" : "60vh")};
   padding: 0px 50px 50px 50px;
-  min-height: 60vh;
   margin: 50px;
   background: linear-gradient(
     225deg,
@@ -20,7 +21,6 @@ const StyledBoard = styled.div`
   );
   box-shadow: 0 0 15px green;
   border-radius: 30px;
-
   .board__title {
     margin: 15px;
     color: #16cc86;
@@ -35,17 +35,12 @@ const StyledBoard = styled.div`
     }
   }
 `;
-type Props = {
-  title: string;
-  func?: Function;
-  isModal?: boolean;
-};
-const Board: FC<Props> = ({ title, func, isModal }) => {
+const Board = ({ title = "", func = null, isModal = false }) => {
   return (
-    <StyledBoard>
-      {isModal && <Button task="modal-close" text="x" func={func}></Button>}
+    <StyledBoard isModal={isModal}>
+      {isModal && <Button isModal text="x" func={func}></Button>}
       <div className="board__title">{title}</div>
-      <BoardContent isModal={isModal} />
+      {isModal ? <ModalForm /> : <BoardContent />}
     </StyledBoard>
   );
 };

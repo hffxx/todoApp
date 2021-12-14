@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import Input from "./Input";
 import styled from "styled-components";
+import ModalForm from "./Modal/ModalForm";
 const StyledBoardContent = styled.div`
   display: flex;
   align-items: center;
@@ -9,28 +9,13 @@ const StyledBoardContent = styled.div`
   background-color: inherit;
   width: 100%;
   height: 100%;
-  & div {
-    color: white;
-  }
+  color: white;
 `;
 
-const ModalForm: FC = () => {
-  return (
-    <>
-      <Input placeholder="Title" />
-      <Input placeholder="Time" />
-    </>
-  );
-};
+interface Props {}
 
-interface Props {
-  isModal?: boolean;
-}
-
-const BoardContent: FC<Props> = ({ isModal }) => {
-  return (
-    <StyledBoardContent>{isModal ? <ModalForm /> : <></>}</StyledBoardContent>
-  );
+const BoardContent: FC<Props> = ({}) => {
+  return <StyledBoardContent>Hello</StyledBoardContent>;
 };
 
 export default BoardContent;
