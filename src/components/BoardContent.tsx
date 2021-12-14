@@ -15,7 +15,12 @@ const StyledBoardContent = styled.div`
 `;
 
 const ModalForm: FC = () => {
-  return <Input placeholder="Title" />;
+  return (
+    <>
+      <Input placeholder="Title" />
+      <Input placeholder="Time" />
+    </>
+  );
 };
 
 interface Props {
