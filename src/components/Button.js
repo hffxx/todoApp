@@ -1,4 +1,17 @@
-import styled from "styled-components";
+import React, { FC } from "react";
+import styled, { css } from "styled-components";
+
+const ModalClose = css`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0;
+  width: 2vw;
+  height: 2vw;
+  font-size: 1vw;
+  border-radius: 50%;
+`;
+
 const StyledButton = styled.button`
   margin: 15px;
   padding: 5px 15px;
@@ -22,10 +35,18 @@ const StyledButton = styled.button`
     color: #16ccab;
     text-shadow: 2px 2px 5px #119e85;
   }
-
+  ${({ task }) => task === "modal-close" && ModalClose}
   @media only screen and (max-width: 992px) {
     font-size: 7vw;
   }
 `;
 
-export default StyledButton;
+const Button = ({ text, func, task }) => {
+  return (
+    <StyledButton task={task} onClick={() => func()}>
+      {text}
+    </StyledButton>
+  );
+};
+
+export default Button;
