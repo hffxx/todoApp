@@ -10,6 +10,11 @@ const ModalClose = css`
   height: 2vw;
   font-size: 1vw;
   border-radius: 50%;
+  @media only screen and (max-width: 992px) {
+    width: 5vw;
+    height: 5vw;
+    font-size: 2.5vw;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -35,13 +40,14 @@ const StyledButton = styled.button`
     color: #16ccab;
     text-shadow: 2px 2px 5px #119e85;
   }
-  ${({ task }) => task === "modal-close" && ModalClose}
   @media only screen and (max-width: 992px) {
     font-size: 7vw;
   }
+
+  ${({ task }) => task === "modal-close" && ModalClose}
 `;
 
-const Button = ({ text, func, task }) => {
+const Button = ({ text, func, task = "" }) => {
   return (
     <StyledButton task={task} onClick={() => func()}>
       {text}

@@ -18,7 +18,7 @@ const Modal = ({ text }) => {
       {modal && (
         <div className="overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => disablePropagation(e)}>
-            <Board title={text} func={toggleModal} />
+            <Board isModal title={text} func={toggleModal} />
           </div>
         </div>
       )}
