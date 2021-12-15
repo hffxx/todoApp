@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import BoardContent from "./BoardContent";
 import ModalForm from "./Modal/ModalForm";
 import Button from "./Button";
@@ -11,7 +11,7 @@ const StyledBoard = styled.div`
   align-items: center;
   width: 30vw;
   min-height: ${({ isModal }) => (isModal ? "30vh" : "60vh")};
-  padding: 0px 50px 50px 50px;
+  padding: 0px 50px;
   margin: 50px;
   background: linear-gradient(
     225deg,
@@ -35,12 +35,20 @@ const StyledBoard = styled.div`
     }
   }
 `;
+
+const dataTest = [
+  { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
+  { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
+  { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
+];
+
 const Board = ({ title = "", func = null, isModal = false }) => {
+  const data = dataTest.filter((el) => el.todoStatus === title);
   return (
     <StyledBoard isModal={isModal}>
       {isModal && <Button isModal text="x" func={func}></Button>}
       <div className="board__title">{title}</div>
-      {isModal ? <ModalForm /> : <BoardContent />}
+      {isModal ? <ModalForm /> : <BoardContent data={data} />}
     </StyledBoard>
   );
 };

@@ -7,14 +7,12 @@ const StyledModal = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 15px;
-  width: 100%;
-  height: 100%;
 `;
 const ModalForm = () => {
   return (
     <StyledModal>
       <Input placeholder="Title" />
-      <Input placeholder="Time" />
+      <Input placeholder="Time (Hours)" />
       <Button text="Add " func />
     </StyledModal>
   );

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import ModalForm from "./Modal/ModalForm";
+import BoardListElement from "./BoardListElement";
+
 const StyledBoardContent = styled.div`
   display: flex;
   align-items: center;
@@ -12,10 +13,22 @@ const StyledBoardContent = styled.div`
   color: white;
 `;
 
-interface Props {}
+interface Props {
+  data: {
+    todoTitle: string;
+    todoStatus: string;
+    todoTimeLeft: number;
+  }[];
+}
 
-const BoardContent: FC<Props> = ({}) => {
-  return <StyledBoardContent>Hello</StyledBoardContent>;
+const BoardContent: FC<Props> = ({ data }) => {
+  return (
+    <StyledBoardContent>
+      {data.map((el, index) => (
+        <BoardListElement todo={el} key={index} />
+      ))}
+    </StyledBoardContent>
+  );
 };
 
 export default BoardContent;
