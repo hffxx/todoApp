@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC } from "react";
 import { GlobalStyle } from "./styles/global";
 import Clock from "./components/Clock";
 import Board from "./components/Board";
