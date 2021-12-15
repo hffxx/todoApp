@@ -13,6 +13,9 @@ const StyledBoard = styled.div`
   min-height: ${({ isModal }) => (isModal ? "30vh" : "60vh")};
   padding: 0px 50px;
   margin: 50px;
+  color: #16cc86;
+  text-shadow: 2px 2px 5px green;
+  box-shadow: 0 0 15px green;
   background: linear-gradient(
     225deg,
     rgba(3, 1, 15, 1) 0%,
