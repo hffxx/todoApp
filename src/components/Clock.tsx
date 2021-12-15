@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import styled from "styled-components";
 
 const StyledClock = styled.h1`
@@ -15,11 +15,18 @@ const StyledClock = styled.h1`
   }
 `;
 
-type Props = {
-  time: string;
-};
-const Clock: FC<Props> = ({ time }) => {
-  return <StyledClock>{time}</StyledClock>;
+const Clock: FC = () => {
+  const [time, setTime] = useState(new Date());
+  const refreshClock = () => {
+    setTime(new Date());
+  };
+  useEffect(() => {
+    const timer = setInterval(refreshClock, 1000);
+    return function cleanup() {
+      clearInterval(timer);
+    };
+  }, []);
+  return <StyledClock>{time.toLocaleTimeString()}</StyledClock>;
 };
 
 export default Clock;

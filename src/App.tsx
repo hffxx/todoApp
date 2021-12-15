@@ -5,20 +5,10 @@ import Board from "./components/Board";
 import Modal from "./components/Modal/Modal";
 import "./App.css";
 const App: FC = () => {
-  const [time, setTime] = useState(new Date());
-  const refreshClock = () => {
-    setTime(new Date());
-  };
-  useEffect(() => {
-    const timer = setInterval(refreshClock, 1000);
-    return function cleanup() {
-      clearInterval(timer);
-    };
-  }, []);
   return (
     <>
       <GlobalStyle />
-      <Clock time={time.toLocaleTimeString()} />
+      <Clock />
       <Modal text="Add Deadline" />
       <div className="display__doubleboard">
         <Board title="In progress" />
