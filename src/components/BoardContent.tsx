@@ -7,10 +7,8 @@ const StyledBoardContent = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 20px;
-  background-color: inherit;
   width: 100%;
   height: 100%;
-  color: white;
 `;
 
 interface Props {
