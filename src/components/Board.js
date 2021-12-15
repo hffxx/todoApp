@@ -1,8 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext } from "react";
 import BoardContent from "./BoardContent";
 import ModalForm from "./Modal/ModalForm";
 import Button from "./Button";
 import styled from "styled-components";
+import { ApplicationContext } from "../App";
 
 const StyledBoard = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ const StyledBoard = styled.div`
   border-radius: 30px;
   .board__title {
     margin: 15px;
+    font-size: 3.5vw;
     ${({ title }) =>
       (title === "Expired" && {
         color: "#ff073a",
@@ -38,9 +40,7 @@ const StyledBoard = styled.div`
         color: "#FFF01F",
         textShadow: "2px 2px 5px yellow",
       })}
-    font-size: 3.5vw;
   }
-
   @media only screen and (max-width: 992px) {
     width: 60vw;
     .board__title {
@@ -53,24 +53,9 @@ const StyledBoard = styled.div`
     (title === "In progress" && { boxShadow: " 0 0 15px yellow" })}
 `;
 
-const dataTest = [
-  { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
-  { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
-  { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-  { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
-  { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
-  { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-  { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
-  { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
-  { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-  { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
-  { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
-  { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-  { todoTitle: "Grocery Store", todoStatus: "Expired", todoTimeLeft: 50 },
-];
-
-const Board = ({ title = "", func = null, isModal = false }) => {
-  const data = dataTest.filter((el) => el.todoStatus === title);
+const Board = ({ title = "", func = null, isModal = false, dataTest = [] }) => {
+  const { state } = useContext(ApplicationContext);
+  const data = state.filter((el) => el.todoStatus === title);
   return (
     <StyledBoard isModal={isModal} title={title}>
       {isModal && <Button isModal text="x" func={func}></Button>}

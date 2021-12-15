@@ -3,10 +3,10 @@ import styled from "styled-components";
 const StyledBoardListElement = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 30vw;
+  justify-content: space-between;
+  width: 25vw;
   margin-bottom: 25px;
-  padding: 10px 0px;
+  padding: 10px 30px;
   color: "#16cc86";
   border: 2px solid #16cc86;
   box-shadow: 0 0 15px green;
@@ -15,7 +15,7 @@ const StyledBoardListElement = styled.div`
   font-size: 1vw;
   @media only screen and (max-width: 992px) {
     font-size: 2vw;
-    width: 60vw;
+    width: 50vw;
   }
   ${({ status }) =>
     (status === "Expired" && {
