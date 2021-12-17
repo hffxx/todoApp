@@ -15,7 +15,7 @@ const StyledClock = styled.h1`
   }
 `;
 
-const Clock: FC = () => {
+const Clock = () => {
   const [time, setTime] = useState(new Date());
   const refreshClock = () => {
     setTime(new Date());

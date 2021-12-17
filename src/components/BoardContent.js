@@ -11,15 +11,15 @@ const StyledBoardContent = styled.div`
   height: 100%;
 `;
 
-interface Props {
-  data: {
-    todoTitle: string;
-    todoStatus: string;
-    todoTimeLeft: number;
-  }[];
-}
+// interface Props {
+//   data: {
+//     todoTitle: string;
+//     todoStatus: string;
+//     todoTimeLeft: number;
+//   }[];
+// }
 
-const BoardContent: FC<Props> = ({ data }) => {
+const BoardContent = ({ data }) => {
   return (
     <StyledBoardContent>
       {data.map((el, index) => (
