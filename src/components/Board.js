@@ -1,9 +1,13 @@
-import React, { FC, useContext } from "react";
+import React, { useContext } from "react";
 import BoardContent from "./BoardContent";
 import ModalForm from "./Modal/ModalForm";
 import Button from "./Button";
 import styled from "styled-components";
 import { ApplicationContext } from "../App";
+
+const textShadowRed = "2px 2px 5px red";
+const textShadowGreen = "2px 2px 5px green";
+const textShadowYellow = "2px 2px 5px yellow";
 
 const StyledBoard = styled.div`
   display: flex;
@@ -30,15 +34,15 @@ const StyledBoard = styled.div`
     ${({ title }) =>
       (title === "Expired" && {
         color: "#ff073a",
-        textShadow: "2px 2px 5px red",
+        textShadow: textShadowRed,
       }) ||
       (title === "Done" && {
         color: "#16cc86",
-        textShadow: "2px 2px 5px green",
+        textShadow: textShadowGreen,
       }) ||
       (title === "In progress" && {
         color: "#FFF01F",
-        textShadow: "2px 2px 5px yellow",
+        textShadow: textShadowYellow,
       })}
   }
   @media only screen and (max-width: 992px) {
@@ -53,7 +57,7 @@ const StyledBoard = styled.div`
     (title === "In progress" && { boxShadow: " 0 0 15px yellow" })}
 `;
 
-const Board = ({ title = "", func = null, isModal = false, dataTest = [] }) => {
+const Board = ({ title, func, isModal }) => {
   const { state } = useContext(ApplicationContext);
   const data = state.filter((el) => el.todoStatus === title);
   return (
