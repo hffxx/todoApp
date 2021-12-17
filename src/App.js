@@ -20,6 +20,12 @@ const App = () => {
     { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
     { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
     { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
+    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
+    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
+    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
+    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
+    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
+    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
   ];
   const [state, setState] = useState(dataTest);
 
@@ -30,8 +36,8 @@ const App = () => {
       <ApplicationContext.Provider value={{ state, setState }}>
         <Modal text="Add Deadline" />
         <div className="display__doubleboard">
-          <Board title="In progress" />
           <Board title="Done" />
+          <Board title="In progress" />
         </div>
         <Board title="Expired" />
       </ApplicationContext.Provider>
