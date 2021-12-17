@@ -1,13 +1,8 @@
 ## Table of contents
-- [Quick Start](#quick-start)
 - [General info](#general-info)
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Todo](#todo)
-
-## Quick start
-
-https://codesandbox.io/s/github/hffxx/todoApp
 
 ## General info
 
