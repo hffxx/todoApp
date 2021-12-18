@@ -58,7 +58,12 @@ const BoardListElement = ({ todo }) => {
     <StyledBoardListElement status={todoStatus}>
       <h2>{todoTitle}</h2>
       <h2>{todoTimeLeft}</h2>
-      <Button text="DEL" func={() => deleteFromList(todoId)}></Button>
+      <Button
+        status={todoStatus}
+        text="del"
+        placement="list-element"
+        func={() => deleteFromList(todoId)}
+      ></Button>
     </StyledBoardListElement>
   );
 };

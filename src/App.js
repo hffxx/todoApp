@@ -27,6 +27,42 @@ const App = () => {
       todoTimeLeft: 50,
       todoId: uuidv4(),
     },
+    {
+      todoTitle: "Grocery Store",
+      todoStatus: "Done",
+      todoTimeLeft: 50,
+      todoId: uuidv4(),
+    },
+    {
+      todoTitle: "Grocery Store",
+      todoStatus: "Done",
+      todoTimeLeft: 50,
+      todoId: uuidv4(),
+    },
+    {
+      todoTitle: "Grocery Store",
+      todoStatus: "Done",
+      todoTimeLeft: 50,
+      todoId: uuidv4(),
+    },
+    {
+      todoTitle: "Grocery Store",
+      todoStatus: "Done",
+      todoTimeLeft: 50,
+      todoId: uuidv4(),
+    },
+    {
+      todoTitle: "Grocery Store",
+      todoStatus: "Done",
+      todoTimeLeft: 50,
+      todoId: uuidv4(),
+    },
+    {
+      todoTitle: "Grocery Store",
+      todoStatus: "Done",
+      todoTimeLeft: 50,
+      todoId: uuidv4(),
+    },
   ];
   const [data, setData] = useState(dataTest);
 
