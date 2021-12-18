@@ -8,13 +8,12 @@ import "./App.css";
 export const ApplicationContext = createContext(null);
 const App = () => {
   const [data, setData] = useState([]);
-  const [modal, setModal] = useState(false);
 
   return (
     <>
       <GlobalStyle />
       <Clock />
-      <ApplicationContext.Provider value={{ data, setData, modal, setModal }}>
+      <ApplicationContext.Provider value={{ data, setData }}>
         <Modal text="Add Deadline" />
         <div className="display__doubleboard">
           <Board title="Done" />

@@ -7,10 +7,11 @@ const StyledBoardContent = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 20px;
-  width: 100%;
-  height: 100%;
   .data-missing {
-    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
   }
 `;
 const BoardContent = ({ data }) => {

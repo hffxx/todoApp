@@ -10,23 +10,35 @@ const StyledModal = styled.div`
   flex-direction: column;
   margin: 15px;
 `;
-const ModalForm = () => {
-  const { data, setData, setModal } = useContext(ApplicationContext);
+const ModalForm = ({ func }) => {
+  const closeModal = func;
+  const { data, setData } = useContext(ApplicationContext);
   const [todo, setTodo] = useState({
-    todoTitle: "test",
+    todoTitle: undefined,
     todoStatus: "In progress",
-    todoTimeLeft: Math.random(),
+    todoTimeLeft: undefined,
     todoId: uuidv4(),
   });
   const addTodo = () => {
-    setData([...data, todo]);
-    setModal(false);
+    const { todoTitle, todoTimeLeft } = todo;
+    if (!!todoTitle && !!todoTimeLeft) {
+      setData([...data, todo]);
+      closeModal();
+    }
   };
+  const setTodoTitle = (title) => {
+    setTodo({ ...todo, todoTitle: title });
+  };
+  const setTodoTime = (time) => {
+    setTodo({ ...todo, todoTimeLeft: Number(time) });
+    console.log(todo);
+  };
+
   return (
     <StyledModal>
-      <Input placeholder="Title" />
-      <Input placeholder="Time (Hours)" />
-      <Button text="Add " func={() => addTodo()} />
+      <Input placeholder="Title" func={setTodoTitle} />
+      <Input placeholder="Time (Hours)" func={setTodoTime} />
+      <Button text="Add " func={addTodo} />
     </StyledModal>
   );
 };

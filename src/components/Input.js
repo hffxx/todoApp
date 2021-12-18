@@ -27,8 +27,13 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ placeholder = "" }) => {
-  return <StyledInput placeholder={placeholder}></StyledInput>;
+const Input = ({ placeholder = "", func }) => {
+  return (
+    <StyledInput
+      placeholder={placeholder}
+      onChange={(e) => func(e.target.value)}
+    ></StyledInput>
+  );
 };
 
 export default Input;

@@ -1,11 +1,10 @@
-import React, { useState, useContext } from "react";
-import { ApplicationContext } from "../../App";
+import React, { useState } from "react";
 import Button from "../Button";
 import Board from "../Board";
 import "./Modal.css";
 
 const Modal = ({ text }) => {
-  const { modal, setModal } = useContext(ApplicationContext);
+  const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -19,7 +18,7 @@ const Modal = ({ text }) => {
       {modal && (
         <div className="overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => disablePropagation(e)}>
-            <Board isModal title={text} />
+            <Board isModal title={text} func={toggleModal} />
           </div>
         </div>
       )}
