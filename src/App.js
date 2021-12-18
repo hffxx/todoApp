@@ -9,7 +9,6 @@ export const ApplicationContext = createContext(null);
 const App = () => {
   const [data, setData] = useState([]);
   const [modal, setModal] = useState(false);
-
   return (
     <>
       <GlobalStyle />

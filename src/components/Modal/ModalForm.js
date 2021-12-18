@@ -15,7 +15,7 @@ const ModalForm = () => {
   const [todo, setTodo] = useState({
     todoTitle: "test",
     todoStatus: "In progress",
-    todoTimeLeft: Math.random(),
+    todoTimeLeft: 10,
     todoId: uuidv4(),
   });
   const addTodo = () => {
