@@ -4,7 +4,6 @@ import ModalForm from "./Modal/ModalForm";
 import Button from "./Button";
 import styled from "styled-components";
 import { ApplicationContext } from "../App";
-import { ModalContext } from "./Modal/Modal";
 
 const textShadowRed = "2px 2px 5px red";
 const textShadowGreen = "2px 2px 5px green";
@@ -16,7 +15,7 @@ const StyledBoard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 30vw;
-  min-height: 20vh;
+  min-height: 60vh;
   padding: 0px 50px 25px 50px;
   margin: 50px;
   color: #16cc86;
