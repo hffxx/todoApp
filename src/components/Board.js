@@ -16,7 +16,7 @@ const StyledBoard = styled.div`
   align-items: center;
   width: 30vw;
   min-height: 30vh;
-  padding: 0px 50px 50px 50px;
+  padding: 0px 50px 2vh 50px;
   margin: 50px;
   color: #16cc86;
   text-shadow: 2px 2px 5px green;
