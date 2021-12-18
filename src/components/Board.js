@@ -15,8 +15,8 @@ const StyledBoard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 30vw;
-  min-height: ${({ isModal }) => (isModal ? "30vh" : "60vh")};
-  padding: 0px 50px;
+  min-height: 30vh;
+  padding: 0px 50px 50px 50px;
   margin: 50px;
   color: #16cc86;
   text-shadow: 2px 2px 5px green;
@@ -58,13 +58,13 @@ const StyledBoard = styled.div`
 `;
 
 const Board = ({ title, func, isModal }) => {
-  const { state } = useContext(ApplicationContext);
-  const data = state.filter((el) => el.todoStatus === title);
+  const { data } = useContext(ApplicationContext);
+  const filteredData = data.filter((el) => el.todoStatus === title);
   return (
     <StyledBoard isModal={isModal} title={title}>
       {isModal && <Button isModal text="x" func={func}></Button>}
       <div className="board__title">{title}</div>
-      {isModal ? <ModalForm /> : <BoardContent data={data} />}
+      {isModal ? <ModalForm /> : <BoardContent data={filteredData} />}
     </StyledBoard>
   );
 };

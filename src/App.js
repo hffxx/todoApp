@@ -27,13 +27,13 @@ const App = () => {
     { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
     { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
   ];
-  const [state, setState] = useState(dataTest);
+  const [data, setData] = useState(dataTest);
 
   return (
     <>
       <GlobalStyle />
       <Clock />
-      <ApplicationContext.Provider value={{ state, setState }}>
+      <ApplicationContext.Provider value={{ data, setData }}>
         <Modal text="Add Deadline" />
         <div className="display__doubleboard">
           <Board title="Done" />
