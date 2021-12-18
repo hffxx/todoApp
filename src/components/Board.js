@@ -4,6 +4,7 @@ import ModalForm from "./Modal/ModalForm";
 import Button from "./Button";
 import styled from "styled-components";
 import { ApplicationContext } from "../App";
+import { ModalContext } from "./Modal/Modal";
 
 const textShadowRed = "2px 2px 5px red";
 const textShadowGreen = "2px 2px 5px green";
@@ -15,8 +16,8 @@ const StyledBoard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 30vw;
-  min-height: 30vh;
-  padding: 0px 50px 2vh 50px;
+  min-height: 20vh;
+  padding: 0px 50px 25px 50px;
   margin: 50px;
   color: #16cc86;
   text-shadow: 2px 2px 5px green;
@@ -56,12 +57,18 @@ const StyledBoard = styled.div`
     })}
 `;
 
-const Board = ({ title, func, isModal }) => {
-  const { data } = useContext(ApplicationContext);
+const Board = ({ title, isModal }) => {
+  const { data, setModal } = useContext(ApplicationContext);
   const filteredData = data.filter((el) => el.todoStatus === title);
   return (
     <StyledBoard isModal={isModal} title={title}>
-      {isModal && <Button placement="modal" text="x" func={func}></Button>}
+      {isModal && (
+        <Button
+          placement="modal"
+          text="x"
+          func={() => setModal(false)}
+        ></Button>
+      )}
       <div className="board__title">{title}</div>
       {isModal ? <ModalForm /> : <BoardContent data={filteredData} />}
     </StyledBoard>

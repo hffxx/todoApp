@@ -7,7 +7,7 @@ const StyledBoardListElement = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 25vw;
-  margin-bottom: 25px;
+  margin: 15px;
   padding: 10px 30px;
   color: "#16cc86";
   border: none;
@@ -36,14 +36,6 @@ const StyledBoardListElement = styled.div`
       boxShadow: "0 0 15px yellow",
     })}
 `;
-
-// interface Props {
-//   todo: {
-//     todoTitle: string;
-//     todoStatus: string;
-//     todoTimeLeft: number;
-//   };
-// }
 
 const BoardListElement = ({ todo }) => {
   const { data, setData } = useContext(ApplicationContext);
