@@ -22,6 +22,7 @@ const ListElementButton = css`
   width: 2vw;
   height: 2vw;
   font-size: 1vw;
+  border-radius: 50%;
   color: inherit;
   box-shadow: inherit;
   text-shadow: inherit;

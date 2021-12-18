@@ -43,6 +43,22 @@ const BoardListElement = ({ todo }) => {
   const deleteFromList = (id) => {
     setData(data.filter((el) => el.todoId !== id));
   };
+  const editSelectedItem = (id, status) => {
+    let item = data.filter((el) => el.todoId === id);
+    let changedData = data.map((el) => {
+      if (el.id === item.id) {
+        return {
+          ...el,
+          todoStatus: status,
+        };
+      } else {
+        return {
+          ...el,
+        };
+      }
+    });
+    setData(changedData);
+  };
   return (
     <StyledBoardListElement status={todoStatus}>
       <h2>{todoTitle}</h2>
@@ -52,6 +68,16 @@ const BoardListElement = ({ todo }) => {
         text="del"
         placement="list-element"
         func={() => deleteFromList(todoId)}
+      ></Button>
+      <Button
+        text="done"
+        placement="list-element"
+        func={() => editSelectedItem(todoId, "Done")}
+      ></Button>
+      <Button
+        text="fail"
+        placement="list-element"
+        func={() => editSelectedItem(todoId, "Expired")}
       ></Button>
     </StyledBoardListElement>
   );
