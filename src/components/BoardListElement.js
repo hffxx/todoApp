@@ -47,10 +47,11 @@ const StyledBoardListElement = styled.div`
 // }
 
 const BoardListElement = ({ todo }) => {
+  const { todoStatus, todoTitle, todoTimeLeft } = todo;
   return (
-    <StyledBoardListElement status={todo.todoStatus}>
-      <h2>{todo.todoTitle}</h2>
-      <h2>{todo.todoTimeLeft}</h2>
+    <StyledBoardListElement status={todoStatus}>
+      <h2>{todoTitle}</h2>
+      <h2>{todoTimeLeft}</h2>
     </StyledBoardListElement>
   );
 };
