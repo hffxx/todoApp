@@ -31,19 +31,6 @@ const StyledBoard = styled.div`
   .board__title {
     margin: 15px;
     font-size: 3.5vw;
-    ${({ title }) =>
-      (title === "Expired" && {
-        color: "#ff073a",
-        textShadow: textShadowRed,
-      }) ||
-      (title === "Done" && {
-        color: "#16cc86",
-        textShadow: textShadowGreen,
-      }) ||
-      (title === "In progress" && {
-        color: "#FFF01F",
-        textShadow: textShadowYellow,
-      })}
   }
   @media only screen and (max-width: 992px) {
     width: 60vw;
@@ -52,9 +39,21 @@ const StyledBoard = styled.div`
     }
   }
   ${({ title }) =>
-    (title === "Expired" && { boxShadow: " 0 0 15px red" }) ||
-    (title === "Done" && { boxShadow: " 0 0 15px green" }) ||
-    (title === "In progress" && { boxShadow: " 0 0 15px yellow" })}
+    (title === "Expired" && {
+      boxShadow: " 0 0 15px red",
+      color: "#ff073a",
+      textShadow: textShadowRed,
+    }) ||
+    (title === "Done" && {
+      boxShadow: " 0 0 15px green",
+      color: "#16cc86",
+      textShadow: textShadowGreen,
+    }) ||
+    (title === "In progress" && {
+      boxShadow: " 0 0 15px yellow",
+      color: "#FFF01F",
+      textShadow: textShadowYellow,
+    })}
 `;
 
 const Board = ({ title, func, isModal }) => {

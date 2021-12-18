@@ -59,7 +59,7 @@ const App = () => {
     },
     {
       todoTitle: "Grocery Store",
-      todoStatus: "Done",
+      todoStatus: "In progress",
       todoTimeLeft: 50,
       todoId: uuidv4(),
     },
