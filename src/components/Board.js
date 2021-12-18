@@ -1,9 +1,13 @@
-import React, { FC, useContext } from "react";
+import React, { useContext } from "react";
 import BoardContent from "./BoardContent";
 import ModalForm from "./Modal/ModalForm";
 import Button from "./Button";
 import styled from "styled-components";
 import { ApplicationContext } from "../App";
+
+const textShadowRed = "2px 2px 5px red";
+const textShadowGreen = "2px 2px 5px green";
+const textShadowYellow = "2px 2px 5px yellow";
 
 const StyledBoard = styled.div`
   display: flex;
@@ -11,8 +15,8 @@ const StyledBoard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 30vw;
-  min-height: ${({ isModal }) => (isModal ? "30vh" : "60vh")};
-  padding: 0px 50px;
+  min-height: 30vh;
+  padding: 0px 50px 2vh 50px;
   margin: 50px;
   color: #16cc86;
   text-shadow: 2px 2px 5px green;
@@ -30,15 +34,15 @@ const StyledBoard = styled.div`
     ${({ title }) =>
       (title === "Expired" && {
         color: "#ff073a",
-        textShadow: "2px 2px 5px red",
+        textShadow: textShadowRed,
       }) ||
       (title === "Done" && {
         color: "#16cc86",
-        textShadow: "2px 2px 5px green",
+        textShadow: textShadowGreen,
       }) ||
       (title === "In progress" && {
         color: "#FFF01F",
-        textShadow: "2px 2px 5px yellow",
+        textShadow: textShadowYellow,
       })}
   }
   @media only screen and (max-width: 992px) {
@@ -53,14 +57,14 @@ const StyledBoard = styled.div`
     (title === "In progress" && { boxShadow: " 0 0 15px yellow" })}
 `;
 
-const Board = ({ title = "", func = null, isModal = false, dataTest = [] }) => {
-  const { state } = useContext(ApplicationContext);
-  const data = state.filter((el) => el.todoStatus === title);
+const Board = ({ title, func, isModal }) => {
+  const { data } = useContext(ApplicationContext);
+  const filteredData = data.filter((el) => el.todoStatus === title);
   return (
     <StyledBoard isModal={isModal} title={title}>
-      {isModal && <Button isModal text="x" func={func}></Button>}
+      {isModal && <Button placement="modal" text="x" func={func}></Button>}
       <div className="board__title">{title}</div>
-      {isModal ? <ModalForm /> : <BoardContent data={data} />}
+      {isModal ? <ModalForm /> : <BoardContent data={filteredData} />}
     </StyledBoard>
   );
 };

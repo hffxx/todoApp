@@ -1,5 +1,7 @@
-import React, { FC } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import Button from "./Button";
+import { ApplicationContext } from "../App";
 const StyledBoardListElement = styled.div`
   display: flex;
   align-items: center;
@@ -47,10 +49,21 @@ const StyledBoardListElement = styled.div`
 // }
 
 const BoardListElement = ({ todo }) => {
+  const { data, setData } = useContext(ApplicationContext);
+  const { todoStatus, todoTitle, todoTimeLeft, todoId } = todo;
+  const deleteFromList = (id) => {
+    setData(data.filter((el) => el.todoId !== id));
+  };
   return (
-    <StyledBoardListElement status={todo.todoStatus}>
-      <h2>{todo.todoTitle}</h2>
-      <h2>{todo.todoTimeLeft}</h2>
+    <StyledBoardListElement status={todoStatus}>
+      <h2>{todoTitle}</h2>
+      <h2>{todoTimeLeft}</h2>
+      <Button
+        status={todoStatus}
+        text="del"
+        placement="list-element"
+        func={() => deleteFromList(todoId)}
+      ></Button>
     </StyledBoardListElement>
   );
 };

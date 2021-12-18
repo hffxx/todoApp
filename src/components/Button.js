@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 
-const ModalClose = css`
+const ModalCloseButton = css`
   position: absolute;
   top: 10px;
   right: 10px;
@@ -10,6 +10,20 @@ const ModalClose = css`
   height: 2vw;
   font-size: 1vw;
   border-radius: 50%;
+  @media only screen and (max-width: 992px) {
+    width: 5vw;
+    height: 5vw;
+    font-size: 2.5vw;
+  }
+`;
+const ListElementButton = css`
+  padding: 0;
+  width: 2vw;
+  height: 2vw;
+  font-size: 1vw;
+  color: inherit;
+  box-shadow: inherit;
+  text-shadow: inherit;
   @media only screen and (max-width: 992px) {
     width: 5vw;
     height: 5vw;
@@ -36,20 +50,21 @@ const StyledButton = styled.button`
   transition-property: box-shadow, color, text-shadow;
   transition-duration: 0.3s;
   :hover {
-    box-shadow: 0 0 15px #16ccab;
-    color: #16ccab;
-    text-shadow: 2px 2px 5px #119e85;
+    box-shadow: 0 0 15px lightgray;
+    color: lightgray;
+    text-shadow: 2px 2px 5px lightgray;
   }
   @media only screen and (max-width: 992px) {
     font-size: 7vw;
   }
 
-  ${({ isModal }) => isModal && ModalClose}
+  ${({ placement }) => placement === "modal" && ModalCloseButton}
+  ${({ placement }) => placement === "list-element" && ListElementButton}
 `;
 
-const Button = ({ isModal = false, func, text = "" }) => {
+const Button = ({ placement, func, text, status = "" }) => {
   return (
-    <StyledButton isModal={isModal} onClick={() => func()}>
+    <StyledButton placement={placement} onClick={func}>
       {text}
     </StyledButton>
   );

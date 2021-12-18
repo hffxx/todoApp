@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import styled from "styled-components";
 import BoardListElement from "./BoardListElement";
 
@@ -23,7 +23,7 @@ const BoardContent = ({ data }) => {
   return (
     <StyledBoardContent>
       {data.map((el, index) => (
-        <BoardListElement todo={el} key={index} />
+        <BoardListElement todo={el} key={index} id={index} />
       ))}
     </StyledBoardContent>
   );
