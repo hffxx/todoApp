@@ -13,7 +13,7 @@ const ModalForm = () => {
     <StyledModal>
       <Input placeholder="Title" />
       <Input placeholder="Time (Hours)" />
-      <Button text="Add " func />
+      <Button text="Add " func={() => console.log("test")} />
     </StyledModal>
   );
 };

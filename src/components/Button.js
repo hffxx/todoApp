@@ -47,9 +47,9 @@ const StyledButton = styled.button`
   ${({ isModal }) => isModal && ModalClose}
 `;
 
-const Button = ({ isModal = false, func, text = "" }) => {
+const Button = ({ isModal, func, text }) => {
   return (
-    <StyledButton isModal={isModal} onClick={() => func()}>
+    <StyledButton isModal={isModal} onClick={func}>
       {text}
     </StyledButton>
   );
