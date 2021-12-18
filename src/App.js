@@ -1,4 +1,5 @@
 import React, { FC, createContext, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { GlobalStyle } from "./styles/global";
 import Clock from "./components/Clock";
 import Board from "./components/Board";
@@ -8,24 +9,24 @@ import "./App.css";
 export const ApplicationContext = createContext(null);
 const App = () => {
   const dataTest = [
-    { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
-    { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-    { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
-    { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-    { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
-    { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-    { todoTitle: "Wash dishes", todoStatus: "In progress", todoTimeLeft: 100 },
-    { todoTitle: "Clean Room", todoStatus: "Expired", todoTimeLeft: 0 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
-    { todoTitle: "Grocery Store", todoStatus: "Done", todoTimeLeft: 50 },
+    {
+      todoTitle: "Wash dishes",
+      todoStatus: "In progress",
+      todoTimeLeft: 100,
+      todoId: uuidv4(),
+    },
+    {
+      todoTitle: "Clean Room",
+      todoStatus: "Expired",
+      todoTimeLeft: 0,
+      todoId: uuidv4(),
+    },
+    {
+      todoTitle: "Grocery Store",
+      todoStatus: "Done",
+      todoTimeLeft: 50,
+      todoId: uuidv4(),
+    },
   ];
   const [data, setData] = useState(dataTest);
 

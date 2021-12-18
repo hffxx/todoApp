@@ -1,10 +1,22 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const ModalClose = css`
+const ModalCloseButton = css`
   position: absolute;
   top: 10px;
   right: 10px;
+  padding: 0;
+  width: 2vw;
+  height: 2vw;
+  font-size: 1vw;
+  border-radius: 50%;
+  @media only screen and (max-width: 992px) {
+    width: 5vw;
+    height: 5vw;
+    font-size: 2.5vw;
+  }
+`;
+const ListElementButton = css`
   padding: 0;
   width: 2vw;
   height: 2vw;
@@ -44,12 +56,12 @@ const StyledButton = styled.button`
     font-size: 7vw;
   }
 
-  ${({ isModal }) => isModal && ModalClose}
+  ${({ placement }) => placement === "modal" && ModalCloseButton}
 `;
 
-const Button = ({ isModal, func, text }) => {
+const Button = ({ placement, func, text }) => {
   return (
-    <StyledButton isModal={isModal} onClick={func}>
+    <StyledButton placement={placement} onClick={func}>
       {text}
     </StyledButton>
   );

@@ -23,7 +23,7 @@ const BoardContent = ({ data }) => {
   return (
     <StyledBoardContent>
       {data.map((el, index) => (
-        <BoardListElement todo={el} key={index} />
+        <BoardListElement todo={el} key={index} id={index} />
       ))}
     </StyledBoardContent>
   );
