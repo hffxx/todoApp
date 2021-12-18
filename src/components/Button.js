@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ModalContext } from "./Modal/Modal";
 import styled, { css } from "styled-components";
 
 const ModalCloseButton = css`
@@ -62,7 +63,7 @@ const StyledButton = styled.button`
   ${({ placement }) => placement === "list-element" && ListElementButton}
 `;
 
-const Button = ({ placement, func, text, status = "" }) => {
+const Button = ({ placement, func, text }) => {
   return (
     <StyledButton placement={placement} onClick={func}>
       {text}
