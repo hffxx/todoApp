@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Input from "../Input";
 import Button from "../Button";
 import { ApplicationContext } from "../../App";
-import moment from "moment";
 const StyledModal = styled.div`
   display: flex;
   align-items: center;
@@ -20,7 +19,6 @@ const ModalForm = ({ func }) => {
     todoTimeLeft: undefined,
     todoId: uuidv4(),
   });
-  console.log(todo.todoTimeLeft % 60);
   const addTodo = () => {
     const { todoTitle, todoTimeLeft } = todo;
     if (!!todoTitle && !!todoTimeLeft) {
