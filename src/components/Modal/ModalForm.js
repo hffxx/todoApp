@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Input from "../Input";
 import Button from "../Button";
 import { ApplicationContext } from "../../App";
+import moment from "moment";
 const StyledModal = styled.div`
   display: flex;
   align-items: center;
@@ -30,7 +31,10 @@ const ModalForm = ({ func }) => {
     setTodo({ ...todo, todoTitle: title });
   };
   const setTodoTime = (time) => {
-    setTodo({ ...todo, todoTimeLeft: Number(time) });
+    setTodo({
+      ...todo,
+      todoTimeLeft: moment.utc(time * 3600 * 1000).format("HH:mm:ss"),
+    });
     console.log(todo);
   };
 

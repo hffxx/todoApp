@@ -38,11 +38,13 @@ const StyledBoardListElement = styled.div`
 `;
 
 const BoardListElement = ({ todo }) => {
-  const { data, setData } = useContext(ApplicationContext);
   const { todoStatus, todoTitle, todoTimeLeft, todoId } = todo;
+  const { data, setData } = useContext(ApplicationContext);
+
   const deleteFromList = (id) => {
     setData(data.filter((el) => el.todoId !== id));
   };
+
   const editSelectedItem = (id, status) => {
     let item = data.filter((el) => el.todoId === id);
     let changedData = data.map((el) => {
@@ -59,6 +61,7 @@ const BoardListElement = ({ todo }) => {
     });
     setData(changedData);
   };
+
   return (
     <StyledBoardListElement status={todoStatus}>
       <h2>{todoTitle}</h2>
@@ -69,16 +72,13 @@ const BoardListElement = ({ todo }) => {
         placement="list-element"
         func={() => deleteFromList(todoId)}
       ></Button>
-      <Button
-        text="done"
-        placement="list-element"
-        func={() => editSelectedItem(todoId, "Done")}
-      ></Button>
-      <Button
-        text="fail"
-        placement="list-element"
-        func={() => editSelectedItem(todoId, "Expired")}
-      ></Button>
+      {todoStatus === "In progress" && (
+        <Button
+          text="done"
+          placement="list-element"
+          func={() => editSelectedItem(todoId, "Done")}
+        ></Button>
+      )}
     </StyledBoardListElement>
   );
 };

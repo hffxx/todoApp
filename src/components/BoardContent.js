@@ -18,7 +18,7 @@ const BoardContent = ({ data }) => {
   return (
     <StyledBoardContent>
       {data.map((el, index) => (
-        <BoardListElement todo={el} key={index} id={index} />
+        <BoardListElement todo={el} key={index} />
       ))}
       {data.length === 0 && (
         <div className="data-missing">No data to display</div>
