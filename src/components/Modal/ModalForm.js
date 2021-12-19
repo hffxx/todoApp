@@ -30,7 +30,10 @@ const ModalForm = ({ func }) => {
     setTodo({ ...todo, todoTitle: title });
   };
   const setTodoTime = (time) => {
-    setTodo({ ...todo, todoTimeLeft: Number(time) });
+    setTodo({
+      ...todo,
+      todoTimeLeft: time * 60,
+    });
     console.log(todo);
   };
 
