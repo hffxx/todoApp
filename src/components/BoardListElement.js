@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { ApplicationContext } from "../App";
+import Countdown, { zeroPad } from "react-countdown";
 const StyledBoardListElement = styled.div`
   display: flex;
   align-items: center;
@@ -36,6 +37,7 @@ const StyledBoardListElement = styled.div`
       boxShadow: "0 0 15px yellow",
     })}
 `;
+const Completionist = () => <span>You are good to go!</span>;
 
 const BoardListElement = ({ todo }) => {
   const { todoStatus, todoTitle, todoTimeLeft, todoId } = todo;
@@ -61,11 +63,27 @@ const BoardListElement = ({ todo }) => {
     });
     setData(changedData);
   };
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      editSelectedItem(todoId, "Expired");
+      return null;
+    } else {
+      // Render a countdown
+      return (
+        <span>
+          {zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}
+        </span>
+      );
+    }
+  };
 
   return (
     <StyledBoardListElement status={todoStatus}>
       <h2>{todoTitle}</h2>
       <h2>{todoTimeLeft}</h2>
+      {todoStatus === "In progress" && (
+        <Countdown date={Date.now() + 10000} renderer={renderer} />
+      )}
       <Button
         status={todoStatus}
         text="del"
