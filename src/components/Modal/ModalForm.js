@@ -20,6 +20,7 @@ const ModalForm = ({ func }) => {
     todoTimeLeft: undefined,
     todoId: uuidv4(),
   });
+  console.log(todo.todoTimeLeft % 60);
   const addTodo = () => {
     const { todoTitle, todoTimeLeft } = todo;
     if (!!todoTitle && !!todoTimeLeft) {
@@ -33,7 +34,7 @@ const ModalForm = ({ func }) => {
   const setTodoTime = (time) => {
     setTodo({
       ...todo,
-      todoTimeLeft: moment.utc(time * 3600 * 1000).format("HH:mm:ss"),
+      todoTimeLeft: time * 60,
     });
     console.log(todo);
   };
