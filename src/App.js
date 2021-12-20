@@ -15,11 +15,12 @@ const App = () => {
       <Clock />
       <ApplicationContext.Provider value={{ data, setData }}>
         <Modal text="Add Deadline" />
-        <div className="display__doubleboard">
-          <Board title="Done" />
+        <div className="display">
           <Board title="In progress" />
+          <Board title="Done" />
+
+          <Board title="Expired" />
         </div>
-        <Board title="Expired" />
       </ApplicationContext.Provider>
     </>
   );

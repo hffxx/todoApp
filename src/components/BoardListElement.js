@@ -9,14 +9,14 @@ const StyledBoardListElement = styled.div`
   justify-content: space-between;
   width: 25vw;
   margin: 15px;
-  padding: 10px 30px;
+  padding: 0px 20px;
   color: "#16cc86";
   border: none;
   box-shadow: 0 0 15px green;
   text-shadow: 0 0 15px green;
   border-radius: 15px;
   font-size: 1vw;
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1200px) {
     font-size: 2vw;
     width: 50vw;
   }
@@ -80,7 +80,7 @@ const BoardListElement = ({ todo }) => {
       {todoStatus === "In progress" && (
         <>
           <Countdown
-            date={Date.now() + 3000}
+            date={Date.now() + 10000}
             renderer={renderer}
             onComplete={() => editSelectedItem(todoId, "Expired")}
           />

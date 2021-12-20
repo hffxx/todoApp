@@ -32,7 +32,7 @@ const StyledBoard = styled.div`
     margin: 15px;
     font-size: 3.5vw;
   }
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1200px) {
     width: 60vw;
     .board__title {
       font-size: 7vw;
