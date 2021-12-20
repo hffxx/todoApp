@@ -9,7 +9,7 @@ const StyledBoardListElement = styled.div`
   justify-content: space-between;
   width: 25vw;
   margin: 15px;
-  padding: 0px 20px;
+  padding: 10px 20px;
   color: "#16cc86";
   border: none;
   box-shadow: 0 0 15px green;
@@ -76,11 +76,10 @@ const BoardListElement = ({ todo }) => {
   return (
     <StyledBoardListElement status={todoStatus}>
       <h2>{todoTitle}</h2>
-      <h2>{todoTimeLeft}</h2>
       {todoStatus === "In progress" && (
         <>
           <Countdown
-            date={Date.now() + 10000}
+            date={todoTimeLeft}
             renderer={renderer}
             onComplete={() => editSelectedItem(todoId, "Expired")}
           />
@@ -91,6 +90,7 @@ const BoardListElement = ({ todo }) => {
           ></Button>
         </>
       )}
+      {todoStatus === "Expired" && <div>FAIL</div>}
       <Button
         status={todoStatus}
         text="del"
