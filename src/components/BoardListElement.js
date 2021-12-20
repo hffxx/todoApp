@@ -61,13 +61,13 @@ const BoardListElement = ({ todo }) => {
     });
     setData(changedData);
   };
-  const renderer = ({ hours, minutes, seconds, completed }) => {
+  const renderer = ({ formatted: { hours, minutes, seconds }, completed }) => {
     if (completed) {
       return <h2>Fail</h2>;
     } else {
       return (
         <span>
-          {zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}
+          {`${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(seconds)}`}
         </span>
       );
     }
@@ -79,6 +79,7 @@ const BoardListElement = ({ todo }) => {
       {todoStatus === "In progress" && (
         <>
           <Countdown
+            daysInHours={true}
             date={todoTimeLeft}
             renderer={renderer}
             onComplete={() => editSelectedItem(todoId, "Expired")}

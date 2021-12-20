@@ -35,6 +35,7 @@ const ModalForm = ({ func }) => {
       todoTimeLeft: Date.now() + time * 60 * 60 * 1000,
     });
   };
+  console.log(todo.todoTimeLeft);
 
   return (
     <StyledModal>
