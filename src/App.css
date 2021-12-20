@@ -1,11 +1,15 @@
-.display__doubleboard {
+.display {
   display: flex;
   align-items: center;
   justify-content: center;
   align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100vw;
 }
-@media only screen and (max-width: 992px) {
-  .display__doubleboard {
+@media only screen and (max-width: 1200px) {
+  .display {
     flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
   }
 }

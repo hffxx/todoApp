@@ -10,7 +10,7 @@ const StyledClock = styled.h1`
   color: #16cc86;
   font-size: 6vw;
   text-shadow: 2px 2px 5px green;
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1200px) {
     font-size: 12vw;
   }
 `;

@@ -21,7 +21,7 @@ const StyledInput = styled.input`
     transition: opacity 0.5s;
     opacity: 0;
   }
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1200px) {
     font-size: 5vw;
     width: 40vw;
   }

@@ -11,7 +11,7 @@ const ModalCloseButton = css`
   height: 2vw;
   font-size: 1vw;
   border-radius: 50%;
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1200px) {
     width: 5vw;
     height: 5vw;
     font-size: 2.5vw;
@@ -26,7 +26,7 @@ const ListElementButton = css`
   color: inherit;
   box-shadow: inherit;
   text-shadow: inherit;
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1200px) {
     width: 5vw;
     height: 5vw;
     font-size: 2.5vw;
@@ -56,7 +56,7 @@ const StyledButton = styled.button`
     color: lightgray;
     text-shadow: 2px 2px 5px lightgray;
   }
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1200px) {
     font-size: 7vw;
   }
 
