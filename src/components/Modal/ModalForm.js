@@ -34,7 +34,6 @@ const ModalForm = ({ func }) => {
       ...todo,
       todoTimeLeft: time * 60,
     });
-    console.log(todo);
   };
 
   return (

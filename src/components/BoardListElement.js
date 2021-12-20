@@ -37,7 +37,6 @@ const StyledBoardListElement = styled.div`
       boxShadow: "0 0 15px yellow",
     })}
 `;
-const Completionist = () => <span>You are good to go!</span>;
 
 const BoardListElement = ({ todo }) => {
   const { todoStatus, todoTitle, todoTimeLeft, todoId } = todo;
@@ -48,9 +47,8 @@ const BoardListElement = ({ todo }) => {
   };
 
   const editSelectedItem = (id, status) => {
-    let item = data.filter((el) => el.todoId === id);
     let changedData = data.map((el) => {
-      if (el.id === item.id) {
+      if (el.todoId === id) {
         return {
           ...el,
           todoStatus: status,
@@ -65,10 +63,8 @@ const BoardListElement = ({ todo }) => {
   };
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
-      editSelectedItem(todoId, "Expired");
-      return null;
+      return <h2>Fail</h2>;
     } else {
-      // Render a countdown
       return (
         <span>
           {zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}
@@ -82,7 +78,18 @@ const BoardListElement = ({ todo }) => {
       <h2>{todoTitle}</h2>
       <h2>{todoTimeLeft}</h2>
       {todoStatus === "In progress" && (
-        <Countdown date={Date.now() + 10000} renderer={renderer} />
+        <>
+          <Countdown
+            date={Date.now() + 3000}
+            renderer={renderer}
+            onComplete={() => editSelectedItem(todoId, "Expired")}
+          />
+          <Button
+            text="done"
+            placement="list-element"
+            func={() => editSelectedItem(todoId, "Done")}
+          ></Button>
+        </>
       )}
       <Button
         status={todoStatus}
@@ -90,13 +97,6 @@ const BoardListElement = ({ todo }) => {
         placement="list-element"
         func={() => deleteFromList(todoId)}
       ></Button>
-      {todoStatus === "In progress" && (
-        <Button
-          text="done"
-          placement="list-element"
-          func={() => editSelectedItem(todoId, "Done")}
-        ></Button>
-      )}
     </StyledBoardListElement>
   );
 };
