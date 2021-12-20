@@ -15,7 +15,7 @@ const StyledBoard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 30vw;
-  min-height: 40vh;
+  min-height: 50vh;
   padding: 0px 50px 25px 50px;
   margin: 50px;
   color: #16cc86;
