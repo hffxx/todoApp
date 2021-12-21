@@ -47,23 +47,13 @@ const BoardListElement = ({ todo }) => {
   };
 
   const editSelectedItem = (id, status) => {
-    let changedData = data.map((el) => {
-      if (el.todoId === id) {
-        return {
-          ...el,
-          todoStatus: status,
-        };
-      } else {
-        return {
-          ...el,
-        };
-      }
-    });
+    let objIndex = data.findIndex((obj) => obj.todoId === id);
+    let changedData = [...data, (data[objIndex].todoStatus = status)];
     setData(changedData);
   };
   const renderer = ({ formatted: { hours, minutes, seconds }, completed }) => {
     if (completed) {
-      return <h2>Fail</h2>;
+      return null;
     } else {
       return (
         <span>
