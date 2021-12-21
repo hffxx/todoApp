@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { ModalContext } from "./Modal/Modal";
+import React from "react";
 import styled, { css } from "styled-components";
 
 const ModalCloseButton = css`
@@ -26,6 +25,15 @@ const ListElementButton = css`
   color: inherit;
   box-shadow: inherit;
   text-shadow: inherit;
+  @media only screen and (max-width: 1200px) {
+    width: 5vw;
+    height: 5vw;
+    font-size: 2.5vw;
+  }
+`;
+const AddModalButton = css`
+  font-size: 2vw;
+  margin: 20px;
   @media only screen and (max-width: 1200px) {
     width: 5vw;
     height: 5vw;
@@ -62,6 +70,7 @@ const StyledButton = styled.button`
 
   ${({ placement }) => placement === "modal" && ModalCloseButton}
   ${({ placement }) => placement === "list-element" && ListElementButton}
+  ${({ placement }) => placement === "add-modal" && AddModalButton}
 `;
 
 const Button = ({ placement, func, text }) => {

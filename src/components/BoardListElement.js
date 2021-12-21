@@ -83,7 +83,6 @@ const BoardListElement = ({ todo }) => {
       )}
       {todoStatus === "Expired" && <div>FAIL</div>}
       <Button
-        status={todoStatus}
         text="del"
         placement="list-element"
         func={() => deleteFromList(todoId)}
