@@ -1,4 +1,4 @@
-import React, { FC, createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { GlobalStyle } from "./styles/global";
 import Clock from "./components/Clock";
 import Board from "./components/Board";
@@ -23,6 +23,22 @@ const App = () => {
   useEffect(() => {
     updateExpensesLocalStorage(data);
   }, [data]);
+
+  const updateTodoStatus = () => {
+    let updatedData = data.map((el) => {
+      if (el.todoTimeLeft < new Date()) {
+        return { ...el, todoStatus: "Expired" };
+      } else {
+        return el;
+      }
+    });
+    setData(updatedData);
+  };
+
+  useEffect(() => {
+    updateTodoStatus();
+  }, []);
+
   return (
     <>
       <GlobalStyle />
@@ -32,7 +48,6 @@ const App = () => {
         <div className="display">
           <Board title="In progress" />
           <Board title="Done" />
-
           <Board title="Expired" />
         </div>
       </ApplicationContext.Provider>
