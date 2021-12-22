@@ -41,7 +41,7 @@ const ModalForm = ({ func }) => {
     <StyledModal>
       <Input placeholder="Title" func={setTodoTitle} />
       <Input placeholder="Time (Hours)" func={setTodoTime} />
-      <Button text="Add " func={addTodo} />
+      <Button text="Add " func={addTodo} placement="add-modal" />
     </StyledModal>
   );
 };
