@@ -18,7 +18,9 @@ This project is simple Todo App. Still under development.
 Project is created with:
 
 - React version: 17.0.2
-- styled-components: 5.3.3
+- Styled-components: 5.3.3
+- React-countdown: 2.3.2
+- uuid: 8.3.2
 
 ## Setup
 
