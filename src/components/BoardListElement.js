@@ -53,7 +53,11 @@ const BoardListElement = ({ todo }) => {
   };
   const renderer = ({ formatted: { hours, minutes, seconds }, completed }) => {
     if (completed) {
-      return null;
+      return (
+        <span>{`${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(
+          seconds
+        )}`}</span>
+      );
     } else {
       return (
         <span>
@@ -67,7 +71,7 @@ const BoardListElement = ({ todo }) => {
 
   return (
     <StyledBoardListElement status={todoStatus}>
-      <h2>{todoTitle}</h2>
+      <h3>{todoTitle}</h3>
       {todoStatus === "In progress" && (
         <Countdown
           daysInHours={true}
@@ -76,6 +80,7 @@ const BoardListElement = ({ todo }) => {
           onComplete={() => editSelectedItem(todoId, "Expired")}
         />
       )}
+      {todoStatus === "Expired" && "00:00:00"}
       <div>
         {todoStatus === "In progress" && (
           <Button

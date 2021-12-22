@@ -20,10 +20,12 @@ const ListElementButton = css`
   padding: 0;
   width: 2vw;
   height: 2vw;
+  margin: 0;
   font-size: 1vw;
   border-radius: 25%;
   color: inherit;
   box-shadow: none;
+  text-shadow: none;
   :hover {
     color: ${({ color }) => (color === "green" ? "green" : "red")};
     box-shadow: none;
