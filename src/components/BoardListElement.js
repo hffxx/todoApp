@@ -53,7 +53,11 @@ const BoardListElement = ({ todo }) => {
   };
   const renderer = ({ formatted: { hours, minutes, seconds }, completed }) => {
     if (completed) {
-      return null;
+      return (
+        <span>{`${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(
+          seconds
+        )}`}</span>
+      );
     } else {
       return (
         <span>
@@ -62,31 +66,36 @@ const BoardListElement = ({ todo }) => {
       );
     }
   };
+  const check = <i class="fa-solid fa-check"></i>;
+  const del = <i class="fa-solid fa-xmark"></i>;
 
   return (
     <StyledBoardListElement status={todoStatus}>
-      <h2>{todoTitle}</h2>
+      <h3>{todoTitle}</h3>
       {todoStatus === "In progress" && (
-        <>
-          <Countdown
-            daysInHours={true}
-            date={todoTimeLeft}
-            renderer={renderer}
-            onComplete={() => editSelectedItem(todoId, "Expired")}
-          />
+        <Countdown
+          daysInHours={true}
+          date={todoTimeLeft}
+          renderer={renderer}
+          onComplete={() => editSelectedItem(todoId, "Expired")}
+        />
+      )}
+      {todoStatus === "Expired" && "00:00:00"}
+      <div>
+        {todoStatus === "In progress" && (
           <Button
-            text="done"
+            text={check}
+            color="green"
             placement="list-element"
             func={() => editSelectedItem(todoId, "Done")}
           ></Button>
-        </>
-      )}
-      {todoStatus === "Expired" && <div>FAIL</div>}
-      <Button
-        text="del"
-        placement="list-element"
-        func={() => deleteFromList(todoId)}
-      ></Button>
+        )}
+        <Button
+          text={del}
+          placement="list-element"
+          func={() => deleteFromList(todoId)}
+        ></Button>
+      </div>
     </StyledBoardListElement>
   );
 };
