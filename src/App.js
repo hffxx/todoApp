@@ -26,7 +26,7 @@ const App = () => {
 
   const updateTodoStatus = () => {
     let updatedData = data.map((el) => {
-      if (el.todoTimeLeft < new Date()) {
+      if (el.todoTimeLeft <= new Date()) {
         return { ...el, todoStatus: "Expired" };
       } else {
         return el;
