@@ -21,7 +21,7 @@ const ModalForm = ({ func }) => {
   });
   const addTodo = () => {
     const { todoTitle, todoTimeLeft } = todo;
-    if (!!todoTitle && !!todoTimeLeft) {
+    if (!!todoTitle && todoTimeLeft >= new Date()) {
       setData([...data, todo]);
       closeModal();
     }
