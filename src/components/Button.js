@@ -23,12 +23,12 @@ const ListElementButton = css`
   font-size: 1vw;
   border-radius: 25%;
   color: inherit;
-  box-shadow: inherit;
-  text-shadow: inherit;
+  box-shadow: none;
   :hover {
-    box-shadow: 0 0 15px lightgray;
-    color: lightgray;
-    text-shadow: 2px 2px 5px lightgray;
+    color: ${({ color }) => (color === "green" ? "green" : "red")};
+    box-shadow: none;
+    text-shadow: ${({ color }) =>
+      color === "green" ? "2px 2px 5px green" : "2px 2px 5px red"};
   }
   @media only screen and (max-width: 1200px) {
     width: 5vw;
@@ -76,9 +76,9 @@ const StyledButton = styled.button`
   ${({ placement }) => placement === "add-modal" && AddModalButton}
 `;
 
-const Button = ({ placement, func, text }) => {
+const Button = ({ placement, func, text, color }) => {
   return (
-    <StyledButton placement={placement} onClick={func}>
+    <StyledButton placement={placement} onClick={func} color={color}>
       {text}
     </StyledButton>
   );

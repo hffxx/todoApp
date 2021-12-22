@@ -62,31 +62,35 @@ const BoardListElement = ({ todo }) => {
       );
     }
   };
+  const check = <i class="fa-solid fa-check"></i>;
+  const del = <i class="fa-solid fa-xmark"></i>;
 
   return (
     <StyledBoardListElement status={todoStatus}>
       <h2>{todoTitle}</h2>
       {todoStatus === "In progress" && (
-        <>
-          <Countdown
-            daysInHours={true}
-            date={todoTimeLeft}
-            renderer={renderer}
-            onComplete={() => editSelectedItem(todoId, "Expired")}
-          />
+        <Countdown
+          daysInHours={true}
+          date={todoTimeLeft}
+          renderer={renderer}
+          onComplete={() => editSelectedItem(todoId, "Expired")}
+        />
+      )}
+      <div>
+        {todoStatus === "In progress" && (
           <Button
-            text="done"
+            text={check}
+            color="green"
             placement="list-element"
             func={() => editSelectedItem(todoId, "Done")}
           ></Button>
-        </>
-      )}
-      {todoStatus === "Expired" && <div>FAIL</div>}
-      <Button
-        text="del"
-        placement="list-element"
-        func={() => deleteFromList(todoId)}
-      ></Button>
+        )}
+        <Button
+          text={del}
+          placement="list-element"
+          func={() => deleteFromList(todoId)}
+        ></Button>
+      </div>
     </StyledBoardListElement>
   );
 };
