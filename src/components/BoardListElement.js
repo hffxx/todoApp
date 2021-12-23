@@ -80,12 +80,12 @@ const BoardListElement = ({ todo }) => {
         />
       )}
       {todoStatus === "Expired" && "Time expired"}
-      {todoStatus === "Done" && "Done"}
+      {todoStatus === "Done" && "Task Done"}
       <div>
         {todoStatus === "In progress" && (
           <Button
             text={check}
-            colorType="green"
+            color="green"
             placement="list-element"
             func={() => editSelectedItem(todoId, "Done")}
           ></Button>
