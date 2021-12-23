@@ -21,7 +21,7 @@ const StyledBoardListElement = styled.div`
     width: 50vw;
   }
   h3 {
-    width: 20vw;
+    width: 10vw;
   }
   ${({ status }) =>
     (status === "Expired" && {
@@ -65,8 +65,8 @@ const BoardListElement = ({ todo }) => {
       );
     }
   };
-  const check = <i class="fa-solid fa-check"></i>;
-  const del = <i class="fa-solid fa-xmark"></i>;
+  const check = <i className="fa-solid fa-check"></i>;
+  const del = <i className="fa-solid fa-xmark"></i>;
 
   return (
     <StyledBoardListElement status={todoStatus}>
@@ -85,7 +85,7 @@ const BoardListElement = ({ todo }) => {
         {todoStatus === "In progress" && (
           <Button
             text={check}
-            color="green"
+            colorType="green"
             placement="list-element"
             func={() => editSelectedItem(todoId, "Done")}
           ></Button>

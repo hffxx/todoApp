@@ -26,7 +26,7 @@ const RadioButton = styled.input`
     width: 2vw;
   }
 `;
-const Radio = () => {
+const Radio = ({ func, unit }) => {
   return (
     <Wrapper>
       <Item>
@@ -35,6 +35,8 @@ const Radio = () => {
           id="hours"
           name="time"
           value="hours"
+          checked={unit === "hours"}
+          onChange={(e) => func(e.target.value)}
         ></RadioButton>
         <RadioButtonLabel for="hours">Hours</RadioButtonLabel>
       </Item>
@@ -44,6 +46,8 @@ const Radio = () => {
           id="minutes"
           name="time"
           value="minutes"
+          checked={unit === "minutes"}
+          onChange={(e) => func(e.target.value)}
         ></RadioButton>
         <RadioButtonLabel for="minutes">Minutes</RadioButtonLabel>
       </Item>

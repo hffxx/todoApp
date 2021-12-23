@@ -20,6 +20,7 @@ const ModalForm = ({ func }) => {
     todoTimeLeft: undefined,
     todoId: uuidv4(),
   });
+  const [timeData, setTimeData] = useState({ unit: "hours", timeAdded: 0 });
   const addTodo = () => {
     const { todoTitle, todoTimeLeft } = todo;
     if (!!todoTitle && todoTimeLeft >= new Date()) {
@@ -36,13 +37,14 @@ const ModalForm = ({ func }) => {
       todoTimeLeft: Date.now() + time * 60 * 60 * 1000,
     });
   };
-  console.log(todo.todoTimeLeft);
-
+  const setTimeUnit = (unit) => {
+    setTimeData({ ...timeData, unit });
+  };
   return (
     <StyledModal>
       <Input placeholder="Title" func={setTodoTitle} />
       <Input placeholder="Time" func={setTodoTime} />
-      <Radio />
+      <Radio func={setTimeUnit} unit={timeData.unit} />
       <Button text="Add " func={addTodo} placement="add-modal" />
     </StyledModal>
   );
