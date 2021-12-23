@@ -20,6 +20,9 @@ const StyledBoardListElement = styled.div`
     font-size: 2vw;
     width: 50vw;
   }
+  h3 {
+    width: 20vw;
+  }
   ${({ status }) =>
     (status === "Expired" && {
       color: "#ff073a",
