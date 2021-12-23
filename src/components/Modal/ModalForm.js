@@ -40,10 +40,14 @@ const ModalForm = ({ func }) => {
   const setTimeUnit = (unit) => {
     setTimeData({ ...timeData, unit });
   };
+  const setTimeAdded = (timeAdded) => {
+    setTimeData({ ...timeData, timeAdded });
+  };
+  console.log(timeData);
   return (
     <StyledModal>
       <Input placeholder="Title" func={setTodoTitle} />
-      <Input placeholder="Time" func={setTodoTime} />
+      <Input placeholder="Time" func={setTimeAdded} />
       <Radio func={setTimeUnit} unit={timeData.unit} />
       <Button text="Add " func={addTodo} placement="add-modal" />
     </StyledModal>
