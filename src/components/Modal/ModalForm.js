@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import Input from "../Input";
 import Button from "../Button";
+import Radio from "../Radio";
 import { ApplicationContext } from "../../App";
 const StyledModal = styled.div`
   display: flex;
@@ -41,6 +42,7 @@ const ModalForm = ({ func }) => {
     <StyledModal>
       <Input placeholder="Title" func={setTodoTitle} />
       <Input placeholder="Time (Hours)" func={setTodoTime} />
+      <Radio />
       <Button text="Add " func={addTodo} placement="add-modal" />
     </StyledModal>
   );

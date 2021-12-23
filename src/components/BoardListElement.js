@@ -53,11 +53,7 @@ const BoardListElement = ({ todo }) => {
   };
   const renderer = ({ formatted: { hours, minutes, seconds }, completed }) => {
     if (completed) {
-      return (
-        <span>{`${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(
-          seconds
-        )}`}</span>
-      );
+      return null;
     } else {
       return (
         <span>
@@ -80,7 +76,8 @@ const BoardListElement = ({ todo }) => {
           onComplete={() => editSelectedItem(todoId, "Expired")}
         />
       )}
-      {todoStatus === "Expired" && "00:00:00"}
+      {todoStatus === "Expired" && "Time expired"}
+      {todoStatus === "Done" && "Done"}
       <div>
         {todoStatus === "In progress" && (
           <Button
