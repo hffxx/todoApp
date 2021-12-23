@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import Input from "../Input";
 import Button from "../Button";
+import Radio from "../Radio";
 import { ApplicationContext } from "../../App";
 const StyledModal = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const ModalForm = ({ func }) => {
     todoTimeLeft: undefined,
     todoId: uuidv4(),
   });
+  const [timeData, setTimeData] = useState({ unit: "hours", timeAdded: 0 });
   const addTodo = () => {
     const { todoTitle, todoTimeLeft } = todo;
     if (!!todoTitle && todoTimeLeft >= new Date()) {
@@ -29,18 +31,32 @@ const ModalForm = ({ func }) => {
   const setTodoTitle = (title) => {
     setTodo({ ...todo, todoTitle: title });
   };
-  const setTodoTime = (time) => {
+  const setTodoTime = () => {
+    const { unit, timeAdded } = timeData;
+    let multiplier = 0;
+    if (unit === "hours") multiplier = 3600000;
+    else if (unit === "minutes") {
+      multiplier = 60000;
+    }
     setTodo({
       ...todo,
-      todoTimeLeft: Date.now() + time * 60 * 60 * 1000,
+      todoTimeLeft: Date.now() + timeAdded * multiplier,
     });
   };
-  console.log(todo.todoTimeLeft);
-
+  useEffect(() => {
+    setTodoTime();
+  }, [timeData]);
+  const setTimeUnit = (unit) => {
+    setTimeData({ ...timeData, unit });
+  };
+  const setTimeAdded = (timeAdded) => {
+    setTimeData({ ...timeData, timeAdded });
+  };
   return (
     <StyledModal>
       <Input placeholder="Title" func={setTodoTitle} />
-      <Input placeholder="Time (Hours)" func={setTodoTime} />
+      <Input placeholder="Time" func={setTimeAdded} />
+      <Radio func={setTimeUnit} unit={timeData.unit} />
       <Button text="Add " func={addTodo} placement="add-modal" />
     </StyledModal>
   );

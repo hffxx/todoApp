@@ -14,9 +14,9 @@ const StyledBoard = styled.div`
   position: relative;
   flex-direction: column;
   align-items: center;
-  width: 30vw;
+  width: 40vw;
   min-height: ${({ isModal }) => (isModal ? "30vh" : "50vh")};
-  padding: 0px 50px 25px 50px;
+  padding: 0px 10px 25px 10px;
   margin: 50px;
   color: #16cc86;
   text-shadow: 2px 2px 5px green;
