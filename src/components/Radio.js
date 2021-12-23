@@ -38,7 +38,7 @@ const Radio = ({ func, unit }) => {
           checked={unit === "hours"}
           onChange={(e) => func(e.target.value)}
         ></RadioButton>
-        <RadioButtonLabel for="hours">Hours</RadioButtonLabel>
+        <RadioButtonLabel htmlFor="hours">Hours</RadioButtonLabel>
       </Item>
       <Item>
         <RadioButton
@@ -49,7 +49,7 @@ const Radio = ({ func, unit }) => {
           checked={unit === "minutes"}
           onChange={(e) => func(e.target.value)}
         ></RadioButton>
-        <RadioButtonLabel for="minutes">Minutes</RadioButtonLabel>
+        <RadioButtonLabel htmlFor="minutes">Minutes</RadioButtonLabel>
       </Item>
     </Wrapper>
   );
