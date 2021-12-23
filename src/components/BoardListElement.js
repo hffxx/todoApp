@@ -7,7 +7,7 @@ const StyledBoardListElement = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 25vw;
+  width: 35vw;
   margin: 15px;
   padding: 10px 20px;
   color: "#16cc86";
