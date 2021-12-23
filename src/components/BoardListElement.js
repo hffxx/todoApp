@@ -21,7 +21,7 @@ const StyledBoardListElement = styled.div`
     width: 50vw;
   }
   h3 {
-    width: 10vw;
+    width: 12vw;
   }
   ${({ status }) =>
     (status === "Expired" && {
